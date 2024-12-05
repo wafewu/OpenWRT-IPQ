@@ -48,3 +48,7 @@ if [[ $WRT_TARGET == *"IPQ"* ]]; then
 	echo "CONFIG_FEED_nss_packages=n" >> ./.config
 	echo "CONFIG_FEED_sqm_scripts_nss=n" >> ./.config
 fi
+
+#修改菜单
+#sed -i 's/"UPnP IGD & PCP\/NAT-PMP"/"UPnP"/g' $(find ./feeds/luci/applications/luci-app-upnp/ -type f -name "luci-app-upnp.json")
+sed -i ':a;N;s/msgid "Wake on LAN +"\s*msgstr ""/msgid "Wake on LAN +"\nmsgstr "网络唤醒+"/g;ta' $(find ./package/luci-app-wolplus/po/zh_Hans/wolplus.po)
