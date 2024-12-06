@@ -1,5 +1,7 @@
 #!/bin/bash
 
+rm -rf feeds/packages/net/adguardhome
+
 #安装和更新软件包
 UPDATE_PACKAGE() {
 	local PKG_NAME=$1
