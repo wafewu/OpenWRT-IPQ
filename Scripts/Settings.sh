@@ -52,6 +52,12 @@ if [[ $WRT_TARGET == *"IPQ"* ]]; then
 	echo "CONFIG_NSS_FIRMWARE_VERSION_12_2=y" >> ./.config
 fi
 
+#编译器优化
+if [[ $WRT_TARGET != *"X86"* ]]; then
+	echo "CONFIG_TARGET_OPTIONS=y" >> ./.config
+	echo "CONFIG_TARGET_OPTIMIZATION=\"-O2 -pipe -march=armv8-a+crypto+crc -mcpu=cortex-a53+crypto+crc -mtune=cortex-a53\"" >> ./.config
+fi
+
 #修改菜单
 #sed -i 's/"UPnP IGD & PCP\/NAT-PMP"/"UPnP"/g' $(find ./feeds/luci/applications/luci-app-upnp/ -type f -name "luci-app-upnp.json")
 #sed -i ':a;N;s/msgid "Wake on LAN +"\s*msgstr ""/msgid "Wake on LAN +"\nmsgstr "网络唤醒+"/g;ta' $(find ./package/luci-app-wolplus/po/zh_Hans/wolplus.po)
