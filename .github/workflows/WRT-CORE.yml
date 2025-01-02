@@ -99,7 +99,6 @@ jobs:
 
       - name: Initialization Values
         run: |
-          #export WRT_DATE=$(TZ=UTC-8 date +"%y.%m.%d_%H.%M.%S")
           export WRT_DATE=$(TZ=UTC-8 date +"%y.%m.%d")
           export WRT_CI=$(basename $GITHUB_WORKSPACE)
           export WRT_VER=$(echo $WRT_REPO | cut -d '/' -f 5-)-$WRT_BRANCH
@@ -133,7 +132,7 @@ jobs:
             ./wrt/staging_dir/tool*
 
       - name: Update Caches
-       if: env.WRT_TEST != 'true'
+        if: env.WRT_TEST != 'true'
         run: |
           if [ -d "./wrt/staging_dir" ]; then
             find "./wrt/staging_dir" -type d -name "stamp" -not -path "*target*" | while read -r DIR; do
@@ -173,8 +172,6 @@ jobs:
       - name: Custom Settings
         run: |
           cd ./wrt/
-
-          rm -rf ./tmp* ./.config*
 
           cat $GITHUB_WORKSPACE/Config/$WRT_TARGET.txt $GITHUB_WORKSPACE/Config/GENERAL.txt >> .config
 
