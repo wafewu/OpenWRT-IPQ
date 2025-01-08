@@ -53,6 +53,13 @@ if [ -d *"openclash"* ]; then
 	cd $PKG_PATH && echo "openclash date has been updated!"
 fi
 
+#修改argon主题字体粗细为normal
+if [ -d *"luci-theme-argon"* ]; then
+	sed -i '/font-weight:/ {/normal/! {/!important/! s/\(font-weight:\s*\)[^;]*;/\1normal;/}}' $(find ./luci-theme-argon/luci-theme-argon -type f -iname "*.css")
+
+	cd $PKG_PATH && echo "theme-argon has been fixed!"
+fi
+
 #移除Shadowsocks组件
 PW_FILE=$(find ./ -maxdepth 3 -type f -wholename "*/luci-app-passwall/Makefile")
 if [ -f "$PW_FILE" ]; then
