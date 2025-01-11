@@ -30,7 +30,7 @@ UPDATE_PACKAGE "mihomo" "morytyann/OpenWrt-mihomo" "main"
 UPDATE_PACKAGE "openclash" "vernesong/OpenClash" "dev" "pkg"
 UPDATE_PACKAGE "ssr-plus" "fw876/helloworld" "master"
 
-UPDATE_PACKAGE "passwall" "xiaorouji/openwrt-passwall" "main" "pkg"
+UPDATE_PACKAGE "openwrt-passwall" "xiaorouji/openwrt-passwall" "main" "pkg"
 UPDATE_PACKAGE "geoview" "xiaorouji/openwrt-passwall-packages" "main" "pkg"
 UPDATE_PACKAGE "hysteria" "xiaorouji/openwrt-passwall-packages" "main" "pkg"
 UPDATE_PACKAGE "NaiveProxy" "xiaorouji/openwrt-passwall-packages" "main" "pkg"
