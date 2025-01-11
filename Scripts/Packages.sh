@@ -30,7 +30,7 @@ UPDATE_PACKAGE "mihomo" "morytyann/OpenWrt-mihomo" "main"
 UPDATE_PACKAGE "openclash" "vernesong/OpenClash" "dev" "pkg"
 UPDATE_PACKAGE "ssr-plus" "fw876/helloworld" "master"
 
-UPDATE_PACKAGE "openwrt-passwall" "wafewu/openwrt-passwall" "main" "pkg"
+UPDATE_PACKAGE "openwrt-passwall" "xiaorouji/openwrt-passwall" "main" "pkg"
 UPDATE_PACKAGE "geoview" "xiaorouji/openwrt-passwall-packages" "main" "pkg"
 
 #UPDATE_PACKAGE "alist" "sbwml/luci-app-alist" "main"
@@ -51,6 +51,20 @@ UPDATE_PACKAGE "luci-app-vlmcsd" "kenzok8/small-package" "main" "pkg"
 if [[ $WRT_REPO != *"immortalwrt"* ]]; then
 	UPDATE_PACKAGE "qmi-wwan" "immortalwrt/wwan-packages" "master" "pkg"
 fi
+
+
+# ------------------PassWall 科学上网--------------------------
+# 移除 openwrt feeds 自带的核心库
+rm -rf feeds/packages/net/{xray-core,v2ray-core,v2ray-geodata,sing-box,pdnsd-alt,brook,chinadns-ng,dns2socks,dns2tcp,gn,hysteria,ipt2socks,microsocks,naiveproxy,shadowsocks-libev,shadowsocks-rust,shadowsocksr-libev,simple-obfs,tcping,trojan,trojan-go,trojan-plus,tuic-client,v2ray-plugin,xray-plugin,gn,geoview}
+# 核心库
+git clone https://github.com/xiaorouji/openwrt-passwall-packages package/passwall-packages
+rm -rf package/passwall-packages/{shadowsocks-rust,v2ray-geodata}
+merge_package v5 https://github.com/sbwml/openwrt_helloworld package/passwall-packages shadowsocks-rust v2ray-geodata
+# app
+rm -rf feeds/luci/applications/{luci-app-passwall,luci-app-ssr-libev-server}
+git clone https://github.com/xiaorouji/openwrt-passwall package/passwall-luci
+# ------------------------------------------------------------
+
 
 #更新软件包版本
 UPDATE_VERSION() {
