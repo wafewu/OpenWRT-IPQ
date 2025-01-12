@@ -1,7 +1,7 @@
 #科学插件调整
 CONFIG_PACKAGE_luci-app-homeproxy=y
 CONFIG_PACKAGE_luci-app-mihomo=y
-CONFIG_PACKAGE_luci-app-passwall=y
+#CONFIG_PACKAGE_luci-app-passwall=y
 #增加插件
 CONFIG_PACKAGE_luci-app-samba4=y
 CONFIG_PACKAGE_luci-app-cpufreq=y
@@ -98,10 +98,7 @@ CONFIG_PACKAGE_luci-app-ramfree=y
 CONFIG_PACKAGE_luci-app-msd_lite=y
 CONFIG_PACKAGE_luci-app-ttyd=y
 CONFIG_PACKAGE_luci-app-hd-idle=y
-#CONFIG_PACKAGE_luci-app-socat=y
-CONFIG_PACKAGE_luci-app-diskman=y
 CONFIG_PACKAGE_luci-app-arpbind=y
-#CONFIG_PACKAGE_luci-app-aria2=y
 CONFIG_PACKAGE_luci-app-vsftpd=y
 CONFIG_PACKAGE_luci-app-ddns-go=y
 CONFIG_PACKAGE_luci-app-fileassistant=y
