@@ -86,8 +86,8 @@ UPDATE_VERSION() {
 	done
 }
 
-vlmcsd_patches="./feeds/packages/net/vlmcsd/patches/"
-mkdir -p $vlmcsd_patches && cp -f ../patches/001-fix_compile_with_ccache.patch $vlmcsd_patches
+#vlmcsd_patches="./feeds/packages/net/vlmcsd/patches/"
+#mkdir -p $vlmcsd_patches && cp -f ../patches/001-fix_compile_with_ccache.patch $vlmcsd_patches
 
 #版本号修复
 sed -i 's/-\(\$(PKG_RELEASE)\)/.\1/g' small/v2ray-geodata/Makefile
