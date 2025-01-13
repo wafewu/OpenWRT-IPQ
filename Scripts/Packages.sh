@@ -1,8 +1,8 @@
 #!/bin/bash
 
 #删除官方的默认插件
-rm -rf ../feeds/luci/applications/luci-app-{passwall*,mosdns,dockerman,dae*,bypass*}
-rm -rf ../feeds/packages/net/{shadowsocks-rust,shadowsocksr-libev,xray*,v2ray*,dae*,sing-box,geoview,trojan-plus}
+rm -rf ../feeds/luci/applications/luci-app-{passwall*,dockerman,dae*,bypass*}
+rm -rf ../feeds/packages/net/trojan-plus
 
 #安装和更新软件包
 UPDATE_PACKAGE() {
