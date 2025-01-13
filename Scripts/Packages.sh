@@ -1,5 +1,9 @@
 #!/bin/bash
 
+#删除官方的默认插件
+rm -rf ../feeds/luci/applications/luci-app-{passwall*,mosdns,dockerman,dae*,bypass*}
+rm -rf ../feeds/packages/net/{shadowsocks-rust,shadowsocksr-libev,xray*,v2ray*,dae*,sing-box,geoview,trojan-plus}
+
 #安装和更新软件包
 UPDATE_PACKAGE() {
 	local PKG_NAME=$1
@@ -30,8 +34,9 @@ UPDATE_PACKAGE "mihomo" "morytyann/OpenWrt-mihomo" "main"
 UPDATE_PACKAGE "openclash" "vernesong/OpenClash" "dev" "pkg"
 UPDATE_PACKAGE "ssr-plus" "fw876/helloworld" "master"
 
-UPDATE_PACKAGE "openwrt-passwall" "wafewu/openwrt-passwall" "main" "pkg"
+UPDATE_PACKAGE "passwall" "xiaorouji/openwrt-passwall" "main" "pkg"
 UPDATE_PACKAGE "geoview" "xiaorouji/openwrt-passwall-packages" "main" "pkg"
+UPDATE_PACKAGE "trojan-plus" "wafewu/trojan-plus" "master"
 
 #UPDATE_PACKAGE "alist" "sbwml/luci-app-alist" "main"
 UPDATE_PACKAGE "mosdns" "sbwml/luci-app-mosdns" "v5"
@@ -85,13 +90,9 @@ UPDATE_VERSION() {
 	done
 }
 
-#vlmcsd_patches="./feeds/packages/net/vlmcsd/patches/"
-#mkdir -p $vlmcsd_patches && cp -f ../patches/001-fix_compile_with_ccache.patch $vlmcsd_patches
+#coremark修复
+sed -i 's/mkdir \$(PKG_BUILD_DIR)\/\$(ARCH)/mkdir -p \$(PKG_BUILD_DIR)\/\$(ARCH)/g' ../feeds/packages/utils/coremark/Makefile
 
-#版本号修复
-#sed -i 's/-\(\$(PKG_RELEASE)\)/.\1/g' small/v2ray-geodata/Makefile
-#rm -rf luci-app-pushbot && git clone https://github.com/zzsj0928/luci-app-pushbot luci-app-pushbot
-#rm -rf luci-app-filemanager && git clone https://github.com/sbwml/luci-app-filemanager
 
 #UPDATE_VERSION "软件包名" "测试版，true，可选，默认为否"
 UPDATE_VERSION "sing-box"
