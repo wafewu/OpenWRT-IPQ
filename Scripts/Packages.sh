@@ -50,7 +50,7 @@ UPDATE_PACKAGE "luci-app-wolplus" "VIKINGYFY/packages" "main" "pkg"
 UPDATE_PACKAGE "luci-app-adguardhome" "wafewu/small-package" "main" "pkg"
 UPDATE_PACKAGE "adguardhome" "wafewu/small-package" "main" "pkg"
 UPDATE_PACKAGE "luci-app-fileassistant" "kenzok8/small-package" "main" "pkg"
-UPDATE_PACKAGE "luci-app-accesscontrol-plus" "CrazyPegasus/luci-app-accesscontrol-plus" "main" "pkg"
+UPDATE_PACKAGE "luci-app-accesscontrol-plus" "kingyond/luci-app-accesscontrol-plus" "main" "pkg"
 
 if [[ $WRT_REPO != *"immortalwrt"* ]]; then
 	UPDATE_PACKAGE "qmi-wwan" "immortalwrt/wwan-packages" "master" "pkg"
