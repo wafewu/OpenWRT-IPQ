@@ -36,7 +36,6 @@ UPDATE_PACKAGE "ssr-plus" "fw876/helloworld" "master"
 
 UPDATE_PACKAGE "passwall" "xiaorouji/openwrt-passwall" "main" "pkg"
 UPDATE_PACKAGE "geoview" "xiaorouji/openwrt-passwall-packages" "main" "pkg"
-UPDATE_PACKAGE "trojan-plus" "wafewu/trojan-plus" "master"
 
 #UPDATE_PACKAGE "alist" "sbwml/luci-app-alist" "main"
 UPDATE_PACKAGE "mosdns" "sbwml/luci-app-mosdns" "v5"
