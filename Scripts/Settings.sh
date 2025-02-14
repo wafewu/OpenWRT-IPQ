@@ -36,8 +36,6 @@ echo "CONFIG_PACKAGE_luci=y" >> ./.config
 echo "CONFIG_LUCI_LANG_zh_Hans=y" >> ./.config
 echo "CONFIG_PACKAGE_luci-theme-$WRT_THEME=y" >> ./.config
 echo "CONFIG_PACKAGE_luci-app-$WRT_THEME-config=y" >> ./.config
-#echo "CONFIG_PACKAGE_luci-app-passwall_INCLUDE_Trojan_Plus=n" >> ./.config
-#echo "CONFIG_PACKAGE_trojan-plus=n" >> ./.config
 
 #手动调整的插件
 if [ -n "$WRT_PACKAGE" ]; then
