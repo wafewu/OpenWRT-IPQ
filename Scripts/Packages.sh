@@ -68,10 +68,9 @@ UPDATE_PACKAGE "luci-app-gecoosac" "lwb1978/openwrt-gecoosac" "main"
 UPDATE_PACKAGE "luci-app-tailscale" "asvow/luci-app-tailscale" "main"
 UPDATE_PACKAGE "luci-app-wolplus" "VIKINGYFY/packages" "main" "pkg"
 UPDATE_PACKAGE "lazyoop" "lazyoop/networking-artifact" "main"
-#UPDATE_PACKAGE "luci-app-adguardhome" "wafewu/small-package" "main" "pkg"
-#UPDATE_PACKAGE "adguardhome" "wafewu/small-package" "main" "pkg"
-UPDATE_PACKAGE "luci-app-adguardhome" "kenzok8/small-package" "master" "pkg"
-UPDATE_PACKAGE "adguardhome" "kenzok8/small-package" "master" "pkg"
+UPDATE_PACKAGE "luci-app-adguardhome" "wafewu/small-package" "main" "pkg"
+UPDATE_PACKAGE "adguardhome" "wafewu/small-package" "main" "pkg"
+
 UPDATE_PACKAGE "luci-app-fileassistant" "kenzok8/small-package" "main" "pkg"
 UPDATE_PACKAGE "luci-app-accesscontrol-plus" "kingyond/luci-app-accesscontrol-plus" "main" "pkg"
 
