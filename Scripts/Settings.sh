@@ -7,8 +7,9 @@ sed -i "s/192\.168\.[0-9]*\.[0-9]*/$WRT_IP/g" $(find ./feeds/luci/modules/luci-m
 #添加编译日期标识
 sed -i "s/(\(luciversion || ''\))/(\1) + (' \/ $WRT_CI-$WRT_DATE')/g" $(find ./feeds/luci/modules/luci-mod-status/ -type f -name "10_system.js")
 
-WIFI_SH="./package/base-files/files/etc/uci-defaults/990_set-wireless.sh"
+WIFI_SH=$(find ./target/linux/{mediatek/filogic,qualcommax}/base-files/etc/uci-defaults/ -type f -name "*set-wireless.sh")
 WIFI_UC="./package/network/config/wifi-scripts/files/lib/wifi/mac80211.uc"
+
 if [ -f "$WIFI_SH" ]; then
 	#修改WIFI名称
 	sed -i "s/BASE_SSID='.*'/BASE_SSID='$WRT_SSID'/g" $WIFI_SH
@@ -43,13 +44,18 @@ if [ -n "$WRT_PACKAGE" ]; then
 fi
 
 #高通平台调整
-if [[ $WRT_TARGET == *"IPQ"* ]]; then
+DTS_PATH="./target/linux/qualcommax/files/arch/arm64/boot/dts/qcom/"
+if [[ $WRT_TARGET == *"QUALCOMMAX"* ]]; then
 	#取消nss相关feed
 	echo "CONFIG_FEED_nss_packages=n" >> ./.config
 	echo "CONFIG_FEED_sqm_scripts_nss=n" >> ./.config
 	#设置NSS版本
 	echo "CONFIG_NSS_FIRMWARE_VERSION_11_4=n" >> ./.config
 	echo "CONFIG_NSS_FIRMWARE_VERSION_12_2=y" >> ./.config
+	#无WIFI配置调整Q6大小
+	if [[ "${WRT_CONFIG,,}" == *"wifi"* && "${WRT_CONFIG,,}" == *"no"* ]]; then
+		find $DTS_PATH -type f ! -iname '*nowifi*' -exec sed -i 's/ipq\(6018\|8074\)\.dtsi/ipq\1-nowifi.dtsi/g' {} +
+	fi
 fi
 
 #编译器优化
