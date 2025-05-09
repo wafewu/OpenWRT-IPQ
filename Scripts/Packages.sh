@@ -54,7 +54,8 @@ UPDATE_PACKAGE "openclash" "vernesong/OpenClash" "dev" "pkg"
 UPDATE_PACKAGE "passwall" "xiaorouji/openwrt-passwall" "main" "pkg"
 UPDATE_PACKAGE "passwall2" "xiaorouji/openwrt-passwall2" "main" "pkg"
 UPDATE_PACKAGE "argon"  "jerrykuku/luci-theme-argon" "master"
-
+UPDATE_PACKAGE "luci-app-adguardhome" "kenzok8/small-package" "main" "pkg"
+UPDATE_PACKAGE "adguardhome" "kenzok8/small-package" "main" "pkg"
 UPDATE_PACKAGE "luci-app-tailscale" "asvow/luci-app-tailscale" "main"
 
 UPDATE_PACKAGE "alist" "sbwml/luci-app-alist" "main"
