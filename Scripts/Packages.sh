@@ -72,8 +72,8 @@ UPDATE_PACKAGE "luci-app-adguardhome" "kenzok8/small-package" "main" "pkg"
 UPDATE_PACKAGE "adguardhome" "kenzok8/small-package" "main" "pkg"
 #UPDATE_PACKAGE "luci-app-fileassistant" "sirpdboy/sirpdboy-package" "main" "pkg"
 #UPDATE_PACKAGE "luci-app-diskman" "lisaac/luci-app-diskman" "master"
-UPDATE_PACKAGE "vlmcsd" "kenzok8/small-package" "main" "pkg"
-UPDATE_PACKAGE "luci-app-vlmcsd" "kenzok8/small-package" "main" "pkg"
+#UPDATE_PACKAGE "vlmcsd" "kenzok8/small-package" "main" "pkg"
+#UPDATE_PACKAGE "luci-app-vlmcsd" "kenzok8/small-package" "main" "pkg"
 
 #更新软件包版本
 UPDATE_VERSION() {
