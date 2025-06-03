@@ -179,6 +179,10 @@ jobs:
 
           make download -j$(nproc)
 
+      - name: Patch llvm.download-ci-llvm in Rust Makefile
+        run: |
+          sed -i 's/--set=llvm\.download-ci-llvm=true/--set=llvm.download-ci-llvm=false/' ./wrt/feeds/packages/lang/rust/Makefile
+
       - name: Compile Firmware
         if: env.WRT_TEST != 'true'
         run: |
