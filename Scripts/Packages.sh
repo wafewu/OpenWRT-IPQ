@@ -68,11 +68,8 @@ UPDATE_PACKAGE "qmodem" "FUjr/QModem" "main"
 UPDATE_PACKAGE "viking" "VIKINGYFY/packages" "main" "" "luci-app-timewol luci-app-wolplus"
 UPDATE_PACKAGE "vnt" "lmq8267/luci-app-vnt" "main"
 
-#UPDATE_PACKAGE "luci-app-adguardhome" "kenzok8/small-package" "main" "pkg"
-#UPDATE_PACKAGE "adguardhome" "kenzok8/small-package" "main" "pkg"
-UPDATE_PACKAGE "luci-app-adguardhome" "sirpdboy/sirpdboy-package" "main" "pkg"
-UPDATE_PACKAGE "adguardhome" "sirpdboy/sirpdboy-package" "main" "pkg"
-
+UPDATE_PACKAGE "luci-app-adguardhome" "kenzok8/small-package" "main" "pkg"
+UPDATE_PACKAGE "adguardhome" "kenzok8/small-package" "main" "pkg"
 #UPDATE_PACKAGE "luci-app-fileassistant" "sirpdboy/sirpdboy-package" "main" "pkg"
 #UPDATE_PACKAGE "luci-app-diskman" "lisaac/luci-app-diskman" "master"
 #UPDATE_PACKAGE "vlmcsd" "kenzok8/small-package" "main" "pkg"
