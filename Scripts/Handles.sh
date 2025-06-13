@@ -53,7 +53,7 @@ if [ -d *"openclash"* ]; then
 	chmod +x ./* && rm -rf ./*.gz
 
 	cd $PKG_PATH && echo "openclash date has been updated!"
-#fi
+fi
 
 #修改qca-nss-drv启动顺序
 NSS_DRV="../feeds/nss_packages/qca-nss-drv/files/qca-nss-drv.init"
