@@ -68,7 +68,7 @@ UPDATE_PACKAGE "vnt" "lmq8267/luci-app-vnt" "main"
 
 UPDATE_PACKAGE "luci-app-adguardhome" "kenzok8/small-package" "main" "pkg"
 UPDATE_PACKAGE "adguardhome" "kenzok8/small-package" "main" "pkg"
-UPDATE_PACKAGE "luci-app-diskman" "kenzok8/small-package" "main" "pkg"
+UPDATE_PACKAGE "luci-app-diskman" "sbwml/openwrt_pkgs" "main" "pkg"
 #UPDATE_PACKAGE "vlmcsd" "kenzok8/small-package" "main" "pkg"
 #UPDATE_PACKAGE "luci-app-vlmcsd" "kenzok8/small-package" "main" "pkg"
 
