@@ -67,10 +67,7 @@ UPDATE_PACKAGE "viking" "VIKINGYFY/packages" "main" "" "luci-app-timewol luci-ap
 UPDATE_PACKAGE "vnt" "lmq8267/luci-app-vnt" "main"
 
 UPDATE_PACKAGE "luci-app-adguardhome" "kenzok8/small-package" "main" "pkg"
-#UPDATE_PACKAGE "luci-app-adguardhome" "sirpdboy/luci-app-adguardhome" "js"
 UPDATE_PACKAGE "adguardhome" "kenzok8/small-package" "main" "pkg"
-
-git_sparse_clone main https://github.com/sbwml/openwrt_pkgs package luci-app-socat luci-app-diskman luci-app-eqos luci-app-vlmcsd vlmcsd 
 
 #更新软件包版本
 UPDATE_VERSION() {
