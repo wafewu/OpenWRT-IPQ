@@ -97,5 +97,5 @@ fi
 
 #修复vlmcsd编译失败
 vlmcsd_dir="$GITHUB_WORKSPACE/wrt/feeds/packages/net/vlmcsd"
-vlmcsd_patch_src="$GITHUB_WORKSPACE/Patches/001-fix_compile_with_ccache.patch"
+vlmcsd_patch_src="$GITHUB_WORKSPACE/Patches/fix_compile_with_ccache.patch"
 vlmcsd_patch_dest="$vlmcsd_dir/patches"
