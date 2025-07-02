@@ -95,6 +95,7 @@ if [ -f "$RUST_FILE" ]; then
 	cd $PKG_PATH && echo "rust has been fixed!"
 fi
 
-# 修正使用ccache编译vlmcsd的问题
-mkdir -p feeds/packages/net/vlmcsd/patches
-cp -f $GITHUB_WORKSPACE/Patches/fix_vlmcsd_compile_with_ccache.patch feeds/packages/net/vlmcsd/patches
+#修复vlmcsd编译失败
+vlmcsd_dir="$GITHUB_WORKSPACE/wrt/feeds/packages/net/vlmcsd"
+vlmcsd_patch_src="$GITHUB_WORKSPACE/Patches/001-fix_compile_with_ccache.patch"
+vlmcsd_patch_dest="$vlmcsd_dir/patches"
