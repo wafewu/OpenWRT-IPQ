@@ -97,4 +97,4 @@ fi
 
 # 修正使用ccache编译vlmcsd的问题
 mkdir -p feeds/packages/net/vlmcsd/patches
-cp -f $GITHUB_WORKSPACE/patches/fix_vlmcsd_compile_with_ccache.patch feeds/packages/net/vlmcsd/patches
+cp -f $GITHUB_WORKSPACE/Patches/fix_vlmcsd_compile_with_ccache.patch feeds/packages/net/vlmcsd/patches
