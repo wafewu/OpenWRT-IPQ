@@ -125,7 +125,7 @@ else
 fi
 
 #修复DiskMan编译失败
-DM_FILE=$(find ../feeds/packages/ -maxdepth 3 -type f -wholename "*/luci-app-diskman/Makefile")
+DM_FILE=$(find ./ -maxdepth 3 -type f -wholename "*/luci-app-diskman/Makefile")
 if [ -f "$DM_FILE" ]; then
 	echo " "
 
