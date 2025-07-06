@@ -68,7 +68,7 @@ UPDATE_PACKAGE "vnt" "lmq8267/luci-app-vnt" "main"
 
 UPDATE_PACKAGE "luci-app-adguardhome" "kenzok8/small-package" "main" "pkg"
 UPDATE_PACKAGE "adguardhome" "kenzok8/small-package" "main" "pkg"
-UPDATE_PACKAGE "applications/luci-app-diskman" "lisaac/luci-app-diskman" "master" "pkg"
+#UPDATE_PACKAGE "applications/luci-app-diskman" "lisaac/luci-app-diskman" "master" "pkg"
 
 #更新软件包版本
 UPDATE_VERSION() {
