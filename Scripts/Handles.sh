@@ -24,6 +24,38 @@ if [ -d *"homeproxy"* ]; then
 	cd $PKG_PATH && echo "homeproxy date has been updated!"
 fi
 
+#预置OpenClash内核和数据
+if [ -d *"openclash"* ]; then
+	CORE_VER="https://raw.githubusercontent.com/vernesong/OpenClash/core/dev/core_version"
+	CORE_TYPE=$(echo $WRT_TARGET | grep -Eiq "64|86" && echo "amd64" || echo "arm64")
+	CORE_TUN_VER=$(curl -sL $CORE_VER | sed -n "2{s/\r$//;p;q}")
+
+	CORE_DEV="https://github.com/vernesong/OpenClash/raw/core/dev/dev/clash-linux-$CORE_TYPE.tar.gz"
+	CORE_MATE="https://github.com/vernesong/OpenClash/raw/core/dev/meta/clash-linux-$CORE_TYPE.tar.gz"
+	CORE_TUN="https://github.com/vernesong/OpenClash/raw/core/dev/premium/clash-linux-$CORE_TYPE-$CORE_TUN_VER.gz"
+
+	GEO_MMDB="https://github.com/alecthw/mmdb_china_ip_list/raw/release/lite/Country.mmdb"
+	GEO_SITE="https://github.com/Loyalsoldier/v2ray-rules-dat/raw/release/geosite.dat"
+	GEO_IP="https://github.com/Loyalsoldier/v2ray-rules-dat/raw/release/geoip.dat"
+
+	cd ./luci-app-openclash/root/etc/openclash/
+
+	curl -sL -o Country.mmdb $GEO_MMDB && echo "Country.mmdb done!"
+	curl -sL -o GeoSite.dat $GEO_SITE && echo "GeoSite.dat done!"
+	curl -sL -o GeoIP.dat $GEO_IP && echo "GeoIP.dat done!"
+
+	mkdir ./core/ && cd ./core/
+
+	curl -sL -o meta.tar.gz $CORE_MATE && tar -zxf meta.tar.gz && mv -f clash clash_meta && echo "meta done!"
+	curl -sL -o tun.gz $CORE_TUN && gzip -d tun.gz && mv -f tun clash_tun && echo "tun done!"
+	curl -sL -o dev.tar.gz $CORE_DEV && tar -zxf dev.tar.gz && echo "dev done!"
+
+	chmod +x ./* && rm -rf ./*.gz
+
+	cd $PKG_PATH && echo "openclash date has been updated!"
+fi
+
+
 #修改argon主题字体和颜色
 if [ -d *"luci-theme-argon"* ]; then
 	echo " "
@@ -85,4 +117,33 @@ if [ -f "$DM_FILE" ]; then
 	sed -i '/ntfs-3g-utils /d' $DM_FILE
 
 	cd $PKG_PATH && echo "diskman has been fixed!"
+fi
+
+#修复vlmcsd编译失败
+vlmcsd_dir="$GITHUB_WORKSPACE/wrt/feeds/packages/net/vlmcsd"
+vlmcsd_patch_src="$GITHUB_WORKSPACE/Patches/fix_compile_with_ccache.patch"
+vlmcsd_patch_dest="$vlmcsd_dir/patches"
+
+if [ -d "$vlmcsd_dir" ]; then
+	# 检查补丁文件是否存在
+	if [ ! -f "$vlmcsd_patch_src" ]; then
+		echo "Error: vlmcsd patch file $vlmcsd_patch_src not found!" >&2
+		exit 1
+	fi
+
+	# 创建目标目录并复制补丁
+	mkdir -p "$vlmcsd_patch_dest" || exit 1
+	cp -f "$vlmcsd_patch_src" "$vlmcsd_patch_dest" || exit 1
+
+	# 进入源码目录应用补丁（如果未应用过）
+	if ! grep -q 'fix_compile_with_ccache' "$vlmcsd_dir/Makefile" 2>/dev/null; then
+		cd "$vlmcsd_dir" || exit 1
+		patch -p1 < "$vlmcsd_patch_src" && echo "vlmcsd: Patch applied to source!" || echo "vlmcsd: Patch may already be applied."
+		cd "$PKG_PATH"
+	fi
+
+	echo "vlmcsd: Patch copied and applied successfully!"
+	cd "$PKG_PATH" && echo "vlmcsd has been fixed!"
+else
+	echo "Warning: vlmcsd directory $vlmcsd_dir not found, skipping patch."
 fi
