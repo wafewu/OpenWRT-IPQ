@@ -73,8 +73,8 @@ UPDATE_PACKAGE "quickfile" "sbwml/luci-app-quickfile" "main"
 UPDATE_PACKAGE "viking" "VIKINGYFY/packages" "main" "" "luci-app-timewol luci-app-wolplus"
 UPDATE_PACKAGE "vnt" "lmq8267/luci-app-vnt" "main"
 
-UPDATE_PACKAGE "luci-app-adguardhome" "kenzok8/small-package" "main" "pkg"
-UPDATE_PACKAGE "adguardhome" "kenzok8/small-package" "main" "pkg"
+#UPDATE_PACKAGE "luci-app-adguardhome" "kenzok8/small-package" "main" "pkg"
+#UPDATE_PACKAGE "adguardhome" "kenzok8/small-package" "main" "pkg"
 UPDATE_PACKAGE "luci-app-nft-timecontrol" "sirpdboy/luci-app-timecontrol" "main" "pkg"
 UPDATE_PACKAGE "luci-app-argon-config" "kenzok8/small-package" "main" "pkg"
 
